@@ -1,12 +1,11 @@
 import os
-from pprint import pprint
-
 import requests
 
 from flight_data import FlightData
 
 TEQUILA_ENDPOINT = os.environ.get("TEQUILA_ENDPOINT")
 TEQUILA_API_KEY = os.environ.get("TEQUILA_API_KEY")
+
 
 class FlightSearch:
     def get_destination_code(self, city):
@@ -54,7 +53,6 @@ class FlightSearch:
 
             try:
                 data = search_res.json()["data"][0]
-                pprint(data)
             except IndexError:
                 return None
             else:
